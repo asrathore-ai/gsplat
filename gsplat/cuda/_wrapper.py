@@ -112,7 +112,7 @@ def world_to_cam(
         - **Gaussian means in camera coordinate system**. [..., C, N, 3]
         - **Gaussian covariances in camera coordinate system**. [..., C, N, 3, 3]
     """
-    from ._torch_impl import _world_to_cam
+    from .._torch_impl import _world_to_cam
 
     warnings.warn(
         "world_to_cam() is removed from the CUDA backend as it's relatively easy to "
