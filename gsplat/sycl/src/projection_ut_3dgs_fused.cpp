@@ -33,7 +33,7 @@ projection_ut_3dgs_fused(
     const at::optional<at::Tensor> thin_prism_coeffs,  // [..., C, 4] optional
     const FThetaCameraDistortionParameters ftheta_coeffs // shared parameters for all cameras
 ) {
-    throw py::value_error(std::string(__func__) + " is not implemented");
+    throw std::runtime_error(std::string(__func__) + " is not implemented");
 }
 
 } // namespace gsplat::sycl

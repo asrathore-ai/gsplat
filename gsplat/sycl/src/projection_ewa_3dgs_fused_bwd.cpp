@@ -26,7 +26,7 @@ projection_ewa_3dgs_fused_bwd(
     const at::optional<at::Tensor> v_compensations, // [..., C, N] optional
     const bool viewmats_requires_grad
 ) {
-    throw py::value_error(std::string(__func__) + " is not implemented");
+    throw std::runtime_error(std::string(__func__) + " is not implemented");
 }
 
 } // namespace gsplat::sycl

@@ -4,7 +4,7 @@
 #include <torch/extension.h>
 #include <ATen/core/Tensor.h>
 #include <pybind11/pybind11.h>
-
+#include <exception>
 #include "Cameras.h"
 #include "Common.h"
 

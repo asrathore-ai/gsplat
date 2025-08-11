@@ -41,7 +41,7 @@ rasterize_to_pixels_2dgs_bwd(
     // options
     bool absgrad
 ) {
-    throw py::value_error(std::string(__func__) + " is not implemented");
+    throw std::runtime_error(std::string(__func__) + " is not implemented");
 }
 
 } // namespace gsplat::sycl

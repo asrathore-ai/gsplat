@@ -11,7 +11,7 @@ std::tuple<at::Tensor, at::Tensor> spherical_harmonics_bwd(
     const at::Tensor v_colors,            // [..., 3]
     bool compute_v_dirs
 ) {
-    throw py::value_error(std::string(__func__) + " is not implemented");
+    throw std::runtime_error(std::string(__func__) + " is not implemented");
 }
 
 } // namespace gsplat::sycl

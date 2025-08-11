@@ -33,7 +33,7 @@ rasterize_to_pixels_from_world_3dgs_fwd(
     const at::Tensor tile_offsets, // [..., C, tile_height, tile_width]
     const at::Tensor flatten_ids   // [n_isects]
 ) {
-    throw py::value_error(std::string(__func__) + " is not implemented");
+    throw std::runtime_error(std::string(__func__) + " is not implemented");
 }
 
 } // namespace gsplat::sycl

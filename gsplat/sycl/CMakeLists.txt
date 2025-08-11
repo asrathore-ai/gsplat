@@ -40,6 +40,18 @@ else()
   message(FATAL_ERROR "Could not find Torch via Python introspection. "
                       "Please ensure PyTorch is installed or set CMAKE_PREFIX_PATH/Torch_DIR manually.")
 endif()
+execute_process(
+  COMMAND "${Python_EXECUTABLE}" -c "import os; from torch.utils import cpp_extension; print(os.path.join(cpp_extension.library_paths(True)[0], 'libtorch_python.so'))"
+  OUTPUT_STRIP_TRAILING_WHITESPACE
+  OUTPUT_VARIABLE TORCH_PYTHON_LIB
+)
+
+if (NOT EXISTS "${TORCH_PYTHON_LIB}")
+    message(FATAL_ERROR "Could not find libtorch_python.so at ${TORCH_PYTHON_LIB}. Please check your PyTorch installation.")
+else()
+    message(STATUS "Found torch_python library at: ${TORCH_PYTHON_LIB}")
+endif()
+
 
 set(PYBIND11_FINDPYTHON ON)
 find_package(pybind11 CONFIG REQUIRED)
@@ -76,28 +88,35 @@ set( SYCL_SOURCES
   ${CMAKE_CURRENT_SOURCE_DIR}/src/spherical_harmonics_fwd.cpp
 )
 
-pybind11_add_module(gsplat_sycl_kernels MODULE ${SYCL_SOURCES})
+set(SYCL_MODULE_NAME gsplat_sycl_kernels)
 
-target_include_directories( gsplat_sycl_kernels SYSTEM PRIVATE
+pybind11_add_module(${SYCL_MODULE_NAME} MODULE ${SYCL_SOURCES})
+
+target_include_directories( ${SYCL_MODULE_NAME} SYSTEM PRIVATE
+    ${Torch_INCLUDE_DIRS}
     ${CMAKE_CURRENT_SOURCE_DIR}/include 
     ${CMAKE_CURRENT_SOURCE_DIR}/../cuda/csrc/third_party/glm 
 )
 
-target_compile_options(gsplat_sycl_kernels PRIVATE -fsycl)
-target_link_options(gsplat_sycl_kernels PRIVATE -fsycl -fsycl-targets=${SYCL_AOT_TARGETS})
-target_link_libraries(gsplat_sycl_kernels PRIVATE IntelSYCL::SYCL_CXX torch)
-target_compile_features(gsplat_sycl_kernels PUBLIC cxx_std_17)
+target_compile_definitions(${SYCL_MODULE_NAME} PRIVATE 
+    TORCH_EXTENSION_NAME=${SYCL_MODULE_NAME}
+)
+
+target_compile_options(${SYCL_MODULE_NAME} PRIVATE -fsycl)
+target_compile_features(${SYCL_MODULE_NAME} PUBLIC cxx_std_17)
+
+target_link_options(${SYCL_MODULE_NAME} PRIVATE -fsycl -fsycl-targets=${SYCL_AOT_TARGETS})
+target_link_libraries(${SYCL_MODULE_NAME} PRIVATE IntelSYCL::SYCL_CXX torch "${TORCH_PYTHON_LIB}")
+
+
 # Fix for icx: error: '-MP' is not supported with offloading enabled
 if (WIN32 AND NOT UNIX)
-    get_target_property(CURRENT_OPTIONS gsplat_sycl_kernels COMPILE_OPTIONS)
+    get_target_property(CURRENT_OPTIONS ${SYCL_MODULE_NAME} COMPILE_OPTIONS)
     string(REPLACE "/MP" "" MODIFIED_OPTIONS "${CURRENT_OPTIONS}")
-    set_target_properties(gsplat_sycl_kernels PROPERTIES COMPILE_OPTIONS "${MODIFIED_OPTIONS}")
+    set_target_properties(${SYCL_MODULE_NAME} PROPERTIES COMPILE_OPTIONS "${MODIFIED_OPTIONS}")
 endif ()
 if (UNIX AND NOT APPLE)
    # Find libtorch_xpu and libsycl at runtime in Python environment
-   set_target_properties(gsplat_sycl_kernels PROPERTIES INSTALL_RPATH 
+   set_target_properties(${SYCL_MODULE_NAME} PROPERTIES INSTALL_RPATH 
            "$ORIGIN/../../torch/lib/;$ORIGIN/../../../../")
 endif()
-install(TARGETS gsplat_sycl_kernels
-    LIBRARY DESTINATION "gsplat_sycl/_kernels"
-)

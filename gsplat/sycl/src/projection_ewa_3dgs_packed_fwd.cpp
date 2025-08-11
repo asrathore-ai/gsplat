@@ -29,7 +29,7 @@ projection_ewa_3dgs_packed_fwd(
     const bool calc_compensations,
     const CameraModelType camera_model
 ) {
-    throw py::value_error(std::string(__func__) + " is not implemented");
+    throw std::runtime_error(std::string(__func__) + " is not implemented");
 }
 
 } // namespace gsplat::sycl
