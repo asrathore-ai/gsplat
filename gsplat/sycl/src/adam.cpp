@@ -11,5 +11,5 @@ void adam(
     const float b2,
     const float eps
 ) {
-    py::runtime_error("Function adam: Not yet implemented!")
+    throw py::value_error(std::string(__func__) + " is not implemented");
 }

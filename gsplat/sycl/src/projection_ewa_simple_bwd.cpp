@@ -10,5 +10,5 @@ std::tuple<at::Tensor, at::Tensor> projection_ewa_simple_bwd(
     const at::Tensor v_means2d, // [..., C, N, 2]
     const at::Tensor v_covars2d // [..., C, N, 2, 2]
 ) {
-
+    throw py::value_error(std::string(__func__) + " is not implemented");
 }

@@ -6,5 +6,5 @@ at::Tensor intersect_offset(
     const uint32_t tile_width,
     const uint32_t tile_height
 ) {
-    
+    throw py::value_error(std::string(__func__) + " is not implemented");
 }

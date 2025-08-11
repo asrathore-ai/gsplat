@@ -23,5 +23,5 @@ projection_2dgs_packed_bwd(
     const bool viewmats_requires_grad,
     const bool sparse_grad
 ) {
-    
+    throw py::value_error(std::string(__func__) + " is not implemented");
 }

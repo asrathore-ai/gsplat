@@ -13,5 +13,5 @@ std::tuple<at::Tensor, at::Tensor, at::Tensor> intersect_tile(
     const bool sort,
     const bool segmented
 ) {
-    
+    throw py::value_error(std::string(__func__) + " is not implemented");
 }

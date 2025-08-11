@@ -7,5 +7,5 @@ std::tuple<at::Tensor, at::Tensor> quat_scale_to_covar_preci_fwd(
     const bool compute_preci,
     const bool triu
 ) {
-    
+    throw py::value_error(std::string(__func__) + " is not implemented");
 }

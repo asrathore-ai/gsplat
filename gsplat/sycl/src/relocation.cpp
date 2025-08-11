@@ -7,5 +7,5 @@ std::tuple<at::Tensor, at::Tensor> relocation(
     at::Tensor binoms,    // [n_max, n_max]
     const int n_max
 ) {
-    
+    throw py::value_error(std::string(__func__) + " is not implemented");
 }

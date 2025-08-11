@@ -16,5 +16,5 @@ std::tuple<at::Tensor, at::Tensor, at::Tensor> rasterize_to_pixels_3dgs_fwd(
     const at::Tensor tile_offsets, // [..., tile_height, tile_width]
     const at::Tensor flatten_ids   // [n_isects]
 ) {
-    
+    throw py::value_error(std::string(__func__) + " is not implemented");
 }

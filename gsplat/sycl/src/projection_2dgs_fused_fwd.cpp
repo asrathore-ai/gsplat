@@ -19,5 +19,5 @@ projection_2dgs_fused_fwd(
     const float far_plane,
     const float radius_clip
 ) {
-    
+    throw py::value_error(std::string(__func__) + " is not implemented");
 }

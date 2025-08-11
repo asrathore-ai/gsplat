@@ -8,5 +8,5 @@ std::tuple<at::Tensor, at::Tensor> projection_ewa_simple_fwd(
     const uint32_t height,
     const CameraModelType camera_model
 ) {
-
+    throw py::value_error(std::string(__func__) + " is not implemented");
 }

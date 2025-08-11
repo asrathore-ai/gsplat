@@ -23,5 +23,5 @@ projection_ewa_3dgs_fused_fwd(
     const bool calc_compensations,
     const CameraModelType camera_model
 ) {
-    
+    throw py::value_error(std::string(__func__) + " is not implemented");
 }

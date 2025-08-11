@@ -6,5 +6,5 @@ at::Tensor spherical_harmonics_fwd(
     const at::Tensor coeffs,             // [..., K, 3]
     const at::optional<at::Tensor> masks // [...]
 ) {
-    
+    throw py::value_error(std::string(__func__) + " is not implemented");
 }

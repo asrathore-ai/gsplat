@@ -39,5 +39,5 @@ rasterize_to_pixels_2dgs_bwd(
     // options
     bool absgrad
 ) {
-    
+    throw py::value_error(std::string(__func__) + " is not implemented");
 }

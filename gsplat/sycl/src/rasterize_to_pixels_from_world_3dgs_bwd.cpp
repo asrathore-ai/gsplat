@@ -37,5 +37,5 @@ rasterize_to_pixels_from_world_3dgs_bwd(
     const at::Tensor v_render_colors, // [..., C, image_height, image_width, 3]
     const at::Tensor v_render_alphas  // [..., C, image_height, image_width, 1]
 ) {
-    
+    throw py::value_error(std::string(__func__) + " is not implemented");
 }
