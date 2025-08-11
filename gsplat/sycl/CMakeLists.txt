@@ -46,33 +46,32 @@ pybind_add_module(gsplat_sycl_kernels MODULE
     
     ${CMAKE_CURRENT_SOURCE_DIR}/ext.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/adam.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/intersect_offset.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/intersect_tile.cpp
-    
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/projection_2dgs_fused_bwd.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/projection_2dgs_fused_fwd.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/projection_2dgs_packed_bwd.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/projection_2dgs_packed_fwd.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/projection_ewa_3dgs_fused_bwd.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/projection_ewa_3dgs_fused_fwd.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/projection_ewa_3dgs_packed_bwd.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/projection_ewa_3dgs_packed_fwd.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/projection_ewa_simple_bwd.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/projection_ewa_simple_fwd.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/projection_ut_3dgs_fused.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/quat_scale_to_covar_preci_bwd.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/quat_scale_to_covar_preci_fwd.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/rasterize_to_indices_2dgs.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/rasterize_to_indices_3dgs.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/rasterize_to_pixels_2dgs_bwd.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/rasterize_to_pixels_2dgs_fwd.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/rasterize_to_pixels_3dgs_bwd.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/rasterize_to_pixels_3dgs_fwd.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/rasterize_to_pixels_from_world_3dgs_bwd.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/rasterize_to_pixels_from_world_3dgs_fwd.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/relocation.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/spherical_harmonics_bwd.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/spherical_harmonics_fwd.cpp
+    #${CMAKE_CURRENT_SOURCE_DIR}/src/intersect_offset.cpp
+    #${CMAKE_CURRENT_SOURCE_DIR}/src/intersect_tile.cpp
+    #${CMAKE_CURRENT_SOURCE_DIR}/src/projection_2dgs_fused_bwd.cpp
+    #${CMAKE_CURRENT_SOURCE_DIR}/src/projection_2dgs_fused_fwd.cpp
+    #${CMAKE_CURRENT_SOURCE_DIR}/src/projection_2dgs_packed_bwd.cpp
+    #${CMAKE_CURRENT_SOURCE_DIR}/src/projection_2dgs_packed_fwd.cpp
+    #${CMAKE_CURRENT_SOURCE_DIR}/src/projection_ewa_3dgs_fused_bwd.cpp
+    #${CMAKE_CURRENT_SOURCE_DIR}/src/projection_ewa_3dgs_fused_fwd.cpp
+    #${CMAKE_CURRENT_SOURCE_DIR}/src/projection_ewa_3dgs_packed_bwd.cpp
+    #${CMAKE_CURRENT_SOURCE_DIR}/src/projection_ewa_3dgs_packed_fwd.cpp
+    #${CMAKE_CURRENT_SOURCE_DIR}/src/projection_ewa_simple_bwd.cpp
+    #${CMAKE_CURRENT_SOURCE_DIR}/src/projection_ewa_simple_fwd.cpp
+    #${CMAKE_CURRENT_SOURCE_DIR}/src/projection_ut_3dgs_fused.cpp
+    #${CMAKE_CURRENT_SOURCE_DIR}/src/quat_scale_to_covar_preci_bwd.cpp
+    #${CMAKE_CURRENT_SOURCE_DIR}/src/quat_scale_to_covar_preci_fwd.cpp
+    #${CMAKE_CURRENT_SOURCE_DIR}/src/rasterize_to_indices_2dgs.cpp
+    #${CMAKE_CURRENT_SOURCE_DIR}/src/rasterize_to_indices_3dgs.cpp
+    #${CMAKE_CURRENT_SOURCE_DIR}/src/rasterize_to_pixels_2dgs_bwd.cpp
+    #${CMAKE_CURRENT_SOURCE_DIR}/src/rasterize_to_pixels_2dgs_fwd.cpp
+    #${CMAKE_CURRENT_SOURCE_DIR}/src/rasterize_to_pixels_3dgs_bwd.cpp
+    #${CMAKE_CURRENT_SOURCE_DIR}/src/rasterize_to_pixels_3dgs_fwd.cpp
+    #${CMAKE_CURRENT_SOURCE_DIR}/src/rasterize_to_pixels_from_world_3dgs_bwd.cpp
+    #${CMAKE_CURRENT_SOURCE_DIR}/src/rasterize_to_pixels_from_world_3dgs_fwd.cpp
+    #${CMAKE_CURRENT_SOURCE_DIR}/src/relocation.cpp
+    #${CMAKE_CURRENT_SOURCE_DIR}/src/spherical_harmonics_bwd.cpp
+    #${CMAKE_CURRENT_SOURCE_DIR}/src/spherical_harmonics_fwd.cpp
 
 )
 
