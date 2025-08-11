@@ -1,5 +1,7 @@
 #include "Ops.h"
 
+namespace gsplat::sycl {
+    
 std::tuple<at::Tensor, at::Tensor, at::Tensor> rasterize_to_pixels_3dgs_fwd(
     // Gaussian parameters
     const at::Tensor means2d,   // [..., N, 2] or [nnz, 2]
@@ -18,3 +20,5 @@ std::tuple<at::Tensor, at::Tensor, at::Tensor> rasterize_to_pixels_3dgs_fwd(
 ) {
     throw py::value_error(std::string(__func__) + " is not implemented");
 }
+
+} // namespace gsplat::sycl

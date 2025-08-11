@@ -1,5 +1,7 @@
 #include "Ops.h"
 
+namespace gsplat::sycl {
+    
 at::Tensor intersect_offset(
     const at::Tensor isect_ids, // [n_isects]
     const uint32_t I,
@@ -8,3 +10,5 @@ at::Tensor intersect_offset(
 ) {
     throw py::value_error(std::string(__func__) + " is not implemented");
 }
+
+} // namespace gsplat::sycl

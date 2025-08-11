@@ -8,7 +8,7 @@
 #include "Cameras.h"
 #include "Common.h"
 
-namespace gsplat {
+namespace gsplat::sycl {
 
 // null operator for tutorial. Does nothing.
 at::Tensor null(const at::Tensor input);
@@ -565,4 +565,4 @@ rasterize_to_pixels_from_world_3dgs_bwd(
     const at::Tensor v_render_alphas  // [..., C, image_height, image_width, 1]
 );
 
-} // namespace gsplat
+} // namespace gsplat::sycl

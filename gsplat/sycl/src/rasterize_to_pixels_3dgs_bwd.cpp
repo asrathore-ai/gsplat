@@ -1,5 +1,7 @@
 #include "Ops.h"
 
+namespace gsplat::sycl {
+    
 std::tuple<at::Tensor, at::Tensor, at::Tensor, at::Tensor, at::Tensor>
 rasterize_to_pixels_3dgs_bwd(
     // Gaussian parameters
@@ -27,3 +29,5 @@ rasterize_to_pixels_3dgs_bwd(
 ) {
     throw py::value_error(std::string(__func__) + " is not implemented");
 }
+
+} // namespace gsplat::sycl

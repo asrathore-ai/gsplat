@@ -1,5 +1,7 @@
 #include "Ops.h"
 
+namespace gsplat::sycl {
+    
 std::tuple<
     at::Tensor,
     at::Tensor,
@@ -24,3 +26,5 @@ projection_2dgs_packed_fwd(
 ) {
     throw py::value_error(std::string(__func__) + " is not implemented");
 }
+
+} // namespace gsplat::sycl

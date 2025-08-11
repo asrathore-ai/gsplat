@@ -1,5 +1,7 @@
 #include "Ops.h"
 
+namespace gsplat::sycl {
+    
 std::tuple<
     at::Tensor,
     at::Tensor,
@@ -41,3 +43,5 @@ rasterize_to_pixels_2dgs_bwd(
 ) {
     throw py::value_error(std::string(__func__) + " is not implemented");
 }
+
+} // namespace gsplat::sycl

@@ -1,5 +1,7 @@
 #include "Ops.h"
 
+namespace gsplat::sycl {
+    
 std::tuple<
     at::Tensor,
     at::Tensor,
@@ -33,3 +35,5 @@ projection_ut_3dgs_fused(
 ) {
     throw py::value_error(std::string(__func__) + " is not implemented");
 }
+
+} // namespace gsplat::sycl

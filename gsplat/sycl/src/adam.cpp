@@ -1,5 +1,7 @@
 #include "Ops.h"
 
+namespace gsplat::sycl {
+    
 void adam(
     at::Tensor &param,                    // [..., D]
     const at::Tensor &param_grad,         // [..., D]
@@ -13,3 +15,5 @@ void adam(
 ) {
     throw py::value_error(std::string(__func__) + " is not implemented");
 }
+
+} // namespace gsplat::sycl

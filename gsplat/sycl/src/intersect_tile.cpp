@@ -1,5 +1,7 @@
 #include "Ops.h"
 
+namespace gsplat::sycl {
+    
 std::tuple<at::Tensor, at::Tensor, at::Tensor> intersect_tile(
     const at::Tensor means2d,                    // [..., C, N, 2] or [nnz, 2]
     const at::Tensor radii,                      // [..., C, N, 2] or [nnz, 2]
@@ -15,3 +17,5 @@ std::tuple<at::Tensor, at::Tensor, at::Tensor> intersect_tile(
 ) {
     throw py::value_error(std::string(__func__) + " is not implemented");
 }
+
+} // namespace gsplat::sycl

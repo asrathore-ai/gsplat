@@ -1,5 +1,7 @@
 #include "Ops.h"
 
+namespace gsplat::sycl {
+    
 std::tuple<at::Tensor, at::Tensor> rasterize_to_indices_3dgs(
     const uint32_t range_start,
     const uint32_t range_end,        // iteration steps
@@ -18,3 +20,5 @@ std::tuple<at::Tensor, at::Tensor> rasterize_to_indices_3dgs(
 ) {
     throw py::value_error(std::string(__func__) + " is not implemented");
 }
+
+} // namespace gsplat::sycl

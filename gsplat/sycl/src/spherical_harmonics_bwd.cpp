@@ -1,5 +1,7 @@
 #include "Ops.h"
 
+namespace gsplat::sycl {
+    
 std::tuple<at::Tensor, at::Tensor> spherical_harmonics_bwd(
     const uint32_t K,
     const uint32_t degrees_to_use,
@@ -11,3 +13,5 @@ std::tuple<at::Tensor, at::Tensor> spherical_harmonics_bwd(
 ) {
     throw py::value_error(std::string(__func__) + " is not implemented");
 }
+
+} // namespace gsplat::sycl
