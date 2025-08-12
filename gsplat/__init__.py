@@ -4,14 +4,29 @@ import torch
 import warnings
 
 BACKEND: str = ""
-_backend_wrapper = None
 
 FORCE_BACKEND = os.getenv("GSPLAT_BACKEND", "").lower()
 
 if FORCE_BACKEND == "cuda" or (FORCE_BACKEND == "" and torch.cuda.is_available()):
     try:
-        from .cuda import _wrapper as _backend_wrapper
         BACKEND = "cuda"
+        from .cuda._wrapper import (
+            RollingShutterType,
+            fully_fused_projection,
+            fully_fused_projection_2dgs,
+            fully_fused_projection_with_ut,
+            isect_offset_encode,
+            isect_tiles,
+            proj,
+            quat_scale_to_covar_preci,
+            rasterize_to_indices_in_range,
+            rasterize_to_indices_in_range_2dgs,
+            rasterize_to_pixels,
+            rasterize_to_pixels_2dgs,
+            rasterize_to_pixels_eval3d,
+            spherical_harmonics,
+            world_to_cam,
+        )
         print("gsplat: CUDA backend successfully loaded.", file=sys.stderr)
     except ImportError:
         if FORCE_BACKEND == "cuda":
@@ -20,8 +35,24 @@ if FORCE_BACKEND == "cuda" or (FORCE_BACKEND == "" and torch.cuda.is_available()
 
 if not BACKEND and (FORCE_BACKEND == "sycl" or FORCE_BACKEND == ""):
     try:
-        from .sycl import _wrapper as _backend_wrapper
         BACKEND = "sycl"
+        from .sycl._wrapper import (
+            RollingShutterType,
+            fully_fused_projection,
+            fully_fused_projection_2dgs,
+            fully_fused_projection_with_ut,
+            isect_offset_encode,
+            isect_tiles,
+            proj,
+            quat_scale_to_covar_preci,
+            rasterize_to_indices_in_range,
+            rasterize_to_indices_in_range_2dgs,
+            rasterize_to_pixels,
+            rasterize_to_pixels_2dgs,
+            rasterize_to_pixels_eval3d,
+            spherical_harmonics,
+            world_to_cam,
+        )
         print("gsplat: SYCL backend successfully loaded.", file=sys.stderr)
     except ImportError as e:
         if FORCE_BACKEND == "sycl":
@@ -33,11 +64,6 @@ if not BACKEND:
         "gsplat: Warning! No high-performance backend (CUDA or SYCL) found.",
         file=sys.stderr,
     )
-
-if _backend_wrapper is not None:
-    for func_name in dir(_backend_wrapper):
-        if not func_name.startswith("_"):
-            globals()[func_name] = getattr(_backend_wrapper, func_name)
 
 
 from .compression import PngCompression
