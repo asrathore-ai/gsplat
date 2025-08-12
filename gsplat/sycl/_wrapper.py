@@ -13,14 +13,14 @@ def _make_lazy_sycl_func(name: str) -> Callable:
     """Creates a lazy-loading function for the SYCL backend."""
     def call_sycl(*args, **kwargs):
         # pylint: disable=import-outside-toplevel
-        from gsplat import gsplat_sycl_kernels as _C
+        from ._backend import _C
         return getattr(_C, name)(*args, **kwargs)
     return call_sycl
 
 def _make_lazy_sycl_obj(name: str) -> Any:
     """Creates a lazy-loading object accessor for the SYCL backend."""
     # pylint: disable=import-outside-toplevel
-    from gsplat import gsplat_sycl_kernels as _C
+    from ._backend import _C
     
     obj = _C
     for name_split in name.split("."):

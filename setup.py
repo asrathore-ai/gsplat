@@ -160,7 +160,7 @@ from setuptools import Extension
 if BUILD_SYCL:
     print("--- Configuring for SYCL build ---")
     cmdclass = {"build_ext": SyclBuildExtension}
-    ext_modules.append(Extension("gsplat._sycl_stub", sources=[])) 
+    ext_modules.append(Extension("gsplat.gsplat_sycl_kernels", sources=[])) 
 elif not BUILD_NO_CUDA:
     print("--- Configuring for CUDA build ---")
     ext_modules = get_extensions()

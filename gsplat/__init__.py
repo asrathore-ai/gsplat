@@ -80,7 +80,7 @@ from .version import __version__
 
 
 __all__ = [
-    "BACKEND"
+    "BACKEND",
     "PngCompression",
     "DefaultStrategy",
     "MCMCStrategy",
