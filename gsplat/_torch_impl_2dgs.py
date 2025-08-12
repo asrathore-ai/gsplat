@@ -231,7 +231,7 @@ def _rasterize_to_pixels_2dgs(
         This function requires the `nerfacc` package to be installed. Please install it
         using the following command `pip install nerfacc`.
     """
-    from ._wrapper import rasterize_to_indices_in_range_2dgs
+    from .cuda._wrapper import rasterize_to_indices_in_range_2dgs
 
     image_dims = means2d.shape[:-2]
     channels = colors.shape[-1]
