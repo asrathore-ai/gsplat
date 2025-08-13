@@ -1,4 +1,8 @@
 #include "Ops.h"
+#include "Common.h"
+#include "kernels/ComputeShFwdKernel.hpp"
+
+#include <c10/xpu/XPUStream.h>
 
 namespace gsplat::sycl {
     
