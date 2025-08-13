@@ -1,12 +1,7 @@
 #ifndef RasterizeToPixelsFwdKernel_HPP
 #define RasterizeToPixelsFwdKernel_HPP
 
- // Assumed to include SYCL headers or types.hpp does
-#include "types.hpp"    // Assumed to define S or include necessary headers
-
-// Include sycl header if not already included via bindings.hpp/types.hpp
- 
-
+#include "types.hpp"    
 #include "gsplat_sycl_utils.hpp"
 
 template <uint32_t COLOR_DIM, uint32_t CHUNK_SIZE, typename S, bool CONCAT_DATA>
@@ -83,16 +78,13 @@ struct RasterizeToPixelsFwdKernel{
      [[intel::reqd_sub_group_size(16)]]
      void operator()(sycl::nd_item<3> work_item) const {
 
-          // Compute work-group indices (each group corresponds to a tile for one camera)
           const uint32_t camera_id = work_item.get_group(0);  // [0, C)
           const uint32_t tile_y    = work_item.get_group(1);  // [0, tile_height)
           const uint32_t tile_x    = work_item.get_group(2);  // [0, tile_width)
           const int32_t tile_id    = tile_y * m_tile_width + tile_x;
 
-          // Adjust pointers per camera.
           const int32_t* tile_offsets_ptr = m_tile_offsets + camera_id * m_tile_height * m_tile_width;
 
-          // Determine the range of gaussian indices for this tile.
           const int32_t range_start = tile_offsets_ptr[tile_id];
           int32_t range_end = 0;
 
@@ -122,7 +114,7 @@ struct RasterizeToPixelsFwdKernel{
           const int32_t pix_id = i * m_image_width + j;
           // Compute pixel center
           bool inside = (i < m_image_height && j < m_image_width);
-          bool done = !inside;  // If outside, mark as done
+          bool done = !inside;
 
           // If a mask exists and the tile is marked false, output background color immediately.
           if (masks_ptr != nullptr && inside && !masks_ptr[tile_id]) {

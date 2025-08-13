@@ -7,7 +7,6 @@
 #include <algorithm>
 
 
-
 template <uint32_t COLOR_DIM, uint32_t CHUNK_SIZE, typename S, bool CONCAT_DATA>
 struct RasterizeToPixelsBwdKernel
 {
