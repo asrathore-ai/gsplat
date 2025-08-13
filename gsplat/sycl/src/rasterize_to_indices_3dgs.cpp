@@ -1,6 +1,10 @@
-#include "Ops.h"
+ 
+#include <c10/xpu/XPUStream.h>
 
-namespace gsplat::sycl {
+#include "Ops.h"
+#include "Common.h"
+
+namespace  gsplat::xpu {
     
 std::tuple<at::Tensor, at::Tensor> rasterize_to_indices_3dgs(
     const uint32_t range_start,
@@ -21,4 +25,4 @@ std::tuple<at::Tensor, at::Tensor> rasterize_to_indices_3dgs(
     throw std::runtime_error(std::string(__func__) + " is not implemented");
 }
 
-} // namespace gsplat::sycl
+} // namespace  gsplat::xpu

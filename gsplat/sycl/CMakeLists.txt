@@ -16,8 +16,6 @@ endif()
 
 find_package(Python 3.8 COMPONENTS Interpreter Development.Module REQUIRED)
 
-find_package(IntelSYCL REQUIRED)
-
 
 execute_process(
   COMMAND "${Python_EXECUTABLE}" -c "import torch.utils; print(torch.utils.cmake_prefix_path)"
@@ -93,7 +91,6 @@ set(SYCL_MODULE_NAME gsplat_sycl_kernels)
 pybind11_add_module(${SYCL_MODULE_NAME} MODULE ${SYCL_SOURCES})
 
 target_include_directories( ${SYCL_MODULE_NAME} SYSTEM PRIVATE
-    ${Torch_INCLUDE_DIRS}
     ${CMAKE_CURRENT_SOURCE_DIR}/include 
     ${CMAKE_CURRENT_SOURCE_DIR}/../cuda/csrc/third_party/glm 
 )
@@ -106,7 +103,7 @@ target_compile_options(${SYCL_MODULE_NAME} PRIVATE -fsycl)
 target_compile_features(${SYCL_MODULE_NAME} PUBLIC cxx_std_17)
 
 target_link_options(${SYCL_MODULE_NAME} PRIVATE -fsycl -fsycl-targets=${SYCL_AOT_TARGETS})
-target_link_libraries(${SYCL_MODULE_NAME} PRIVATE IntelSYCL::SYCL_CXX torch "${TORCH_PYTHON_LIB}")
+target_link_libraries(${SYCL_MODULE_NAME} PRIVATE torch)
 
 
 # Fix for icx: error: '-MP' is not supported with offloading enabled

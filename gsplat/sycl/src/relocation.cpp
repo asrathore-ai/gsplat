@@ -1,6 +1,10 @@
-#include "Ops.h"
+ 
+#include <c10/xpu/XPUStream.h>
 
-namespace gsplat::sycl {
+#include "Ops.h"
+#include "Common.h"
+
+namespace  gsplat::xpu {
     
 std::tuple<at::Tensor, at::Tensor> relocation(
     at::Tensor opacities, // [N]
@@ -12,4 +16,4 @@ std::tuple<at::Tensor, at::Tensor> relocation(
     throw std::runtime_error(std::string(__func__) + " is not implemented");
 }
 
-} // namespace gsplat::sycl
+} // namespace  gsplat::xpu

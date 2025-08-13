@@ -1,7 +1,7 @@
 #ifndef ProjBwdKernel_HPP
 #define ProjBwdKernel_HPP
 
-#include "bindings.hpp"
+
 #include "proj.hpp"
 
 template<typename T>

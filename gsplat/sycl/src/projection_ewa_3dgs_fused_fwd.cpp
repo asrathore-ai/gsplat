@@ -1,6 +1,10 @@
-#include "Ops.h"
+ 
+#include <c10/xpu/XPUStream.h>
 
-namespace gsplat::sycl {
+#include "Ops.h"
+#include "Common.h"
+
+namespace  gsplat::xpu {
     
 std::tuple<
     at::Tensor,
@@ -28,4 +32,4 @@ projection_ewa_3dgs_fused_fwd(
     throw std::runtime_error(std::string(__func__) + " is not implemented");
 }
 
-} // namespace gsplat::sycl
+} // namespace  gsplat::xpu

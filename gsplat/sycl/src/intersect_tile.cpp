@@ -1,6 +1,10 @@
-#include "Ops.h"
+ 
+#include <c10/xpu/XPUStream.h>
 
-namespace gsplat::sycl {
+#include "Ops.h"
+#include "Common.h"
+
+namespace  gsplat::xpu {
     
 std::tuple<at::Tensor, at::Tensor, at::Tensor> intersect_tile(
     const at::Tensor means2d,                    // [..., C, N, 2] or [nnz, 2]
@@ -18,4 +22,4 @@ std::tuple<at::Tensor, at::Tensor, at::Tensor> intersect_tile(
     throw std::runtime_error(std::string(__func__) + " is not implemented");
 }
 
-} // namespace gsplat::sycl
+} // namespace  gsplat::xpu

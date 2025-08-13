@@ -1,6 +1,10 @@
-#include "Ops.h"
+ 
+#include <c10/xpu/XPUStream.h>
 
-namespace gsplat::sycl {
+#include "Ops.h"
+#include "Common.h"
+
+namespace  gsplat::xpu {
     
 at::Tensor intersect_offset(
     const at::Tensor isect_ids, // [n_isects]
@@ -11,4 +15,4 @@ at::Tensor intersect_offset(
     throw std::runtime_error(std::string(__func__) + " is not implemented");
 }
 
-} // namespace gsplat::sycl
+} // namespace  gsplat::xpu

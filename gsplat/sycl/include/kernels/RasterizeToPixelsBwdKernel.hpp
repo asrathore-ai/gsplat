@@ -1,7 +1,7 @@
 #ifndef RasterizeToPixelsBwdKernel_HPP
 #define RasterizeToPixelsBwdKernel_HPP
 
-#include "bindings.hpp"
+
 #include "types.hpp"
 #include "gsplat_sycl_utils.hpp"
 #include <algorithm>

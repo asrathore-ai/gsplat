@@ -1,7 +1,6 @@
 #ifndef ComputeShFwdKernel_HPP
 #define ComputeShFwdKernel_HPP
 
-#include "bindings.hpp"
 #include "spherical_harmonics.hpp"
 
 template<typename T>

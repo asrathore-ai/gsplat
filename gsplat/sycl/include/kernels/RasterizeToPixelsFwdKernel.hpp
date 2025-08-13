@@ -1,11 +1,11 @@
 #ifndef RasterizeToPixelsFwdKernel_HPP
 #define RasterizeToPixelsFwdKernel_HPP
 
-#include "bindings.hpp" // Assumed to include SYCL headers or types.hpp does
+ // Assumed to include SYCL headers or types.hpp does
 #include "types.hpp"    // Assumed to define S or include necessary headers
 
 // Include sycl header if not already included via bindings.hpp/types.hpp
-#include <sycl/sycl.hpp>
+ 
 
 #include "gsplat_sycl_utils.hpp"
 

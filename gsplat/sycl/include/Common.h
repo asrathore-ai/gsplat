@@ -4,7 +4,7 @@
 #include <cstdint>
 #include <glm/gtc/type_ptr.hpp>
 
-namespace gsplat::sycl {
+namespace  gsplat::xpu {
 
 //
 // Some Macros.
@@ -16,16 +16,6 @@ namespace gsplat::sycl {
     CHECK_XPU(x);                                                              \
     CHECK_CONTIGUOUS(x)
 
-//
-// Convenience typedefs for CUDA types
-//
-using vec2 = glm::vec<2, float>;
-using vec3 = glm::vec<3, float>;
-using vec4 = glm::vec<4, float>;
-using mat2 = glm::mat<2, 2, float>;
-using mat3 = glm::mat<3, 3, float>;
-using mat4 = glm::mat<4, 4, float>;
-using mat3x2 = glm::mat<3, 2, float>;
 
 //
 // Legacy Camera Types
@@ -37,7 +27,6 @@ enum CameraModelType {
     FTHETA = 3,
 };
 
-#define N_THREADS_PACKED 256
-#define ALPHA_THRESHOLD (1.f / 255.f)
+#define GSPLAT_N_THREADS 256
 
-} // namespace gsplat::sycl
+} // namespace  gsplat::xpu

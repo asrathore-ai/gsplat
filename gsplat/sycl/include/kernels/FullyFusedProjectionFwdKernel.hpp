@@ -1,7 +1,7 @@
 #ifndef FullyFusedProjectionFwdKernel_HPP
 #define FullyFusedProjectionFwdKernel_HPP
 
-#include "bindings.hpp"
+
 #include "utils.hpp"
 #include "quat_scale_to_covar_preci.hpp"
 #include "proj.hpp"

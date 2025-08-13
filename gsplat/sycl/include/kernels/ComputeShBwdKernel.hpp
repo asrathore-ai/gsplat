@@ -2,7 +2,6 @@
 #define ComputeShBwdKernel_HPP
 
 #include "utils.hpp"
-#include "bindings.hpp"
 #include "spherical_harmonics.hpp"
 #include "types.hpp"
 

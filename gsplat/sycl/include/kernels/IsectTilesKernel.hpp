@@ -1,7 +1,7 @@
 #ifndef IsectTilesKernel_HPP
 #define IsectTilesKernel_HPP
 
-#include <sycl/sycl.hpp>
+ 
 #include "types.hpp"
 #include "transform.hpp"
 #include "utils.hpp"

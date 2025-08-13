@@ -1,7 +1,7 @@
 #ifndef WorldToCamBwdKernel_HPP
 #define WorldToCamBwdKernel_HPP
 
-#include <sycl/sycl.hpp>
+ 
 #include "types.hpp"
 #include "transform.hpp"
 #include "utils.hpp"

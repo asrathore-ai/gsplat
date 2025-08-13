@@ -1,7 +1,7 @@
 #ifndef QuatScaleToCovarPreciFwdKernel_HPP
 #define QuatScaleToCovarPreciFwdKernel_HPP
 
-#include "bindings.hpp"
+
 #include "quat_scale_to_covar_preci.hpp"
 
 template<typename T>
