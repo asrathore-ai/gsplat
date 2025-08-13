@@ -3,6 +3,8 @@
 
 #include "spherical_harmonics.hpp"
 
+namespace gsplat::xpu {
+
 template<typename T>
 struct ComputeShFwdKernel{
     const uint32_t m_N;
@@ -49,3 +51,5 @@ struct ComputeShFwdKernel{
 };
 
 #endif //ComputeShFwdKernel_HPP
+
+} // namespace  gsplat::xpu

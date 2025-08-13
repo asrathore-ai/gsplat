@@ -9,6 +9,8 @@
 #include "types.hpp"
 #include "transform.hpp"
 
+namespace gsplat::xpu {
+    
 template <typename T>
 struct WorldToCamFwdKernel{
     const uint32_t m_C;
@@ -92,3 +94,5 @@ struct WorldToCamFwdKernel{
 };
 
 #endif //WorldToCamFwdKernel_HPP
+
+} // namespace  gsplat::xpu

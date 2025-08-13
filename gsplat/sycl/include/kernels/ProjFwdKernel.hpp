@@ -3,6 +3,9 @@
 
 
 #include "proj.hpp"
+#include "Common.h"
+
+namespace gsplat::xpu {
 
 template<typename T>
 struct ProjFwdKernel{
@@ -81,3 +84,5 @@ struct ProjFwdKernel{
 
 };
 #endif //ProjFwdKernel_HPP
+
+} //namespace gsplat::xpu

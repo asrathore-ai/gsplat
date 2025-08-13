@@ -7,6 +7,8 @@
 #include "proj.hpp"
 #include "transform.hpp"
 
+namespace gsplat::xpu {
+
 template<typename T>
 struct FullyFusedProjectionFwdKernel{
     const uint32_t m_C;
@@ -214,3 +216,5 @@ struct FullyFusedProjectionFwdKernel{
     
 };
 #endif //FullyFusedProjectionFwdKernel_HPP
+
+} // namespace  gsplat::xpu

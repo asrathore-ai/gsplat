@@ -8,6 +8,8 @@
 #include "proj.hpp"
 #include "transform.hpp"
 
+namespace gsplat::xpu {
+
 template<typename T>
 struct FullyFusedProjectionBwdKernel{
     // fwd inputs
@@ -267,3 +269,5 @@ struct FullyFusedProjectionBwdKernel{
 };
 
 #endif //FullyFusedProjectionBwdKernel_HPP
+
+} // namespace  gsplat::xpu

@@ -7,6 +7,8 @@
 #include "utils.hpp"
 #include <algorithm>
 
+namespace gsplat::xpu {
+
 struct uint2 {
     uint32_t x;
     uint32_t y;
@@ -137,3 +139,5 @@ struct IsectTilesKernel {
 };
 
 #endif //IsectTilesKernel_HPP
+
+} // namespace  gsplat::xpu

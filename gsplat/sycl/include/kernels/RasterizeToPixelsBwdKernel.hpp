@@ -6,7 +6,8 @@
 #include "gsplat_sycl_utils.hpp"
 #include <algorithm>
 
-
+namespace gsplat::xpu {
+	
 template <uint32_t COLOR_DIM, uint32_t CHUNK_SIZE, typename S, bool CONCAT_DATA>
 struct RasterizeToPixelsBwdKernel
 {
@@ -365,3 +366,5 @@ struct RasterizeToPixelsBwdKernel
 };
 
 #endif // RasterizeToPixelsBwdKernel_HPP
+
+} // namespace  gsplat::xpu

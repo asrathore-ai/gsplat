@@ -4,6 +4,8 @@
 #include "types.hpp"    
 #include "gsplat_sycl_utils.hpp"
 
+namespace gsplat::xpu {
+     
 template <uint32_t COLOR_DIM, uint32_t CHUNK_SIZE, typename S, bool CONCAT_DATA>
 struct RasterizeToPixelsFwdKernel{
      const uint32_t m_C;
@@ -263,3 +265,5 @@ struct RasterizeToPixelsFwdKernel{
 };
 
 #endif //RasterizeToPixelsFwdKernel_HPP
+
+} // namespace  gsplat::xpu

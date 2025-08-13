@@ -4,6 +4,8 @@
 
 #include "quat_scale_to_covar_preci.hpp"
 
+namespace gsplat::xpu {
+    
 template<typename T>
 struct QuatScaleToCovarPreciBwdKernel{
 
@@ -115,3 +117,5 @@ struct QuatScaleToCovarPreciBwdKernel{
 };
 
 #endif //QuatScaleToCovarPreciBwdKernel_HPP
+
+} // namespace  gsplat::xpu
